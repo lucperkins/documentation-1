@@ -12,12 +12,6 @@ PY3=$(shell if [ `which pyenv` ]; then \
 IMAGE_VERSION="latest"
 
 # config
-CONFIG_FILE := Makefile.config
-ifeq ($(wildcard $(CONFIG_FILE)),)
-	_ := $(error $(CONFIG_FILE) not found. See $(CONFIG_FILE).example.)
-endif
-include $(CONFIG_FILE)
-
 help:
 	@perl -nle'print $& if m{^[a-zA-Z_-]+:.*?## .*$$}' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-25s\033[0m %s\n", $$1, $$2}'
 
