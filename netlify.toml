@@ -1,0 +1,13 @@
+[build]
+publish = "public"
+command = "make build-live"
+
+[build.environment]
+HUGO_VERSION = "0.81.0"
+NODE_VERSION = "14.8.0"
+
+[context.deploy-preview]
+command = "make build-preview"
+
+[context.branch-deploy]
+command = "make build-preview"
